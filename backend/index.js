@@ -8,6 +8,9 @@ const product = require('./DB/product')
 app.use(express.json())
 app.use(cors())
 
+app.get("/",(req,res)=>{
+    res.send("Working")
+})
 
 /*Sign-up*/
 app.post("/signup", async (req, res) => {
@@ -97,7 +100,7 @@ app.get("/search/:key", async (req, res) => {
     res.send(result)
 })
 
-const PORT = process.env.port || 5000
+const PORT = process.env.PORT || 5000
 app.listen(PORT, () => {
     console.log("Server is running")
 })
