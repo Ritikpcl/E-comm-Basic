@@ -35,7 +35,7 @@ export default function AddProduct() {
         Id = await JSON.parse(Id)._id
         item.userId = Id;
         /*one liner : item.userId = await JSON.parse(localStorage.getItem('user')._id*/
-        let result = await fetch("http://localhost:5000/addProduct", {
+        let result = await fetch(`${process.env.REACT_APP_Domain}/addProduct`, {
             method: 'post',
             body: JSON.stringify(item),
             headers: {

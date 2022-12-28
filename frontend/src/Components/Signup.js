@@ -26,7 +26,7 @@ export default function Signup() {
 
     async function collectData(event) {
 
-        let result = await fetch("http://localhost:5000/signup", {
+        let result = await fetch(`${process.env.REACT_APP_Domain}/signup`, {
             method: 'post',
             body: JSON.stringify(data),
             headers: {

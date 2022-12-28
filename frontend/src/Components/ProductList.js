@@ -26,7 +26,7 @@ export default function ProductList() {
     }, [sort]) //when sort button clicked getProducts function should execute that's why sort is written in it
 
     async function getProducts() {
-        let item = await fetch("http://localhost:5000/productList")
+        let item = await fetch(`${process.env.REACT_APP_Domain}/productList`)
         item = await item.json()
         item.sort((a, b) => {
             if (sort) {
@@ -62,7 +62,7 @@ export default function ProductList() {
             confirmButtonText: 'Yes'
         }).then(async (result) => {
             if (result.isConfirmed) {
-                let result = await fetch(`http://localhost:5000/productList/${item._id}`, {
+                let result = await fetch(`${process.env.REACT_APP_Domain}/productList/${item._id}`, {
                     method: 'Delete'
                 })
 
@@ -83,7 +83,7 @@ export default function ProductList() {
     async function searchHandle(event) {
         let key = event.target.value
         if (key) {
-            let result = await fetch(`http://localhost:5000/search/${key}`)
+            let result = await fetch(`${process.env.REACT_APP_Domain}/search/${key}`)
             result = await result.json()
 
             if (result) {

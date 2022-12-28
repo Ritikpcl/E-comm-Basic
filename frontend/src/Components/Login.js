@@ -25,7 +25,7 @@ export default function Signup() {
     }, [])
 
     async function checkData(event) {
-        let result = await fetch("http://localhost:5000/login", {
+        let result = await fetch(`${process.env.REACT_APP_Domain}/login`, {
             method: 'post',
             body: JSON.stringify(data),
             headers: {

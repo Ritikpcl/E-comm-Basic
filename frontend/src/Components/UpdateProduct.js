@@ -21,7 +21,7 @@ export default function UpdateProduct() {
     }, [])
 
     async function getDetails() {
-        let details = await fetch(`http://localhost:5000/updateProduct/${params.id}`)
+        let details = await fetch(`${process.env.REACT_APP_Domain}/updateProduct/${params.id}`)
         details = await details.json()
 
         setItem(prevItem => ({
@@ -43,7 +43,7 @@ export default function UpdateProduct() {
 
     async function updateItem() {
 
-        let result = await fetch(`http://localhost:5000/updateProduct/${params.id}`,
+        let result = await fetch(`${process.env.REACT_APP_Domain}/updateProduct/${params.id}`,
             {
                 method: 'put',
                 body: JSON.stringify(item),
